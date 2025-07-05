@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Asset Locator - Free unclaimed property search service for New Jersey residents. No risk, no upfront fees. We only get paid when you do.">
+    <meta name="keywords" content="unclaimed property, asset recovery, New Jersey, free service, finder's fee, escrow">
+    <meta name="author" content="King David Contracting">
+    <meta property="og:title" content="The Asset Locator - Free Unclaimed Property Recovery">
+    <meta property="og:description" content="Free unclaimed property search for NJ residents. No risk, no upfront fees. We only get paid when you recover your assets.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kingdavidcontracting.com/theassetlocator">
+    <title>The Asset Locator - Free Unclaimed Property Recovery | King David Contracting</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #059669;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #059669;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .asset-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: #f0fdf4;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #059669, #047857);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .trust-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .trust-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #059669, #047857);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .trust-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .trust-card p {
+            color: #64748b;
+        }
+
+        /* Service Details */
+        .service-details {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .details-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .details-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .details-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .details-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box {
+            background: #ecfdf5;
+            border-left: 4px solid #059669;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .highlight-box h4 {
+            color: #047857;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Forms Section */
+        .forms-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #059669;
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: #059669;
+        }
+
+        .contact-item {
+            margin: 0.5rem 0;
+        }
+
+        .contact-item a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .forms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                margin: 0 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="/" class="logo">The Asset Locator</a>
+                <ul class="nav-menu">
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#trust">Why Choose Us</a></li>
+                    <li><a href="#forms">Get Started</a></li>
+                    <li><a href="/">King David Contracting</a></li>
+                </ul>
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <div class="asset-logo">
+                    <img src="logo2.png" alt="Asset Locator Logo" style="width: 80px; height: 80px; border-radius: 50%;">
+                </div>
+                <h1>The Asset Locator</h1>
+                <p class="hero-tagline">A Service of King David Contracting</p>
+                <p class="hero-description">Free unclaimed property search for New Jersey residents. No risk, no upfront fees. We only get paid when you recover your assets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Submit Your Information</h3>
+                    <p>Provide your name and all past addresses in New Jersey. No Social Security number or sensitive data required.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>We Search for You</h3>
+                    <p>We search the New Jersey unclaimed property database and streamline the entire recovery process.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Recover Your Assets</h3>
+                    <p>If we find unclaimed property, we handle all paperwork and use secure escrow for amounts over $100.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Get Paid</h3>
+                    <p>You receive your recovered funds minus our 20% finder's fee. We only get paid when you do!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section" id="trust">
+        <div class="container">
+            <h2 class="section-title">Why Choose The Asset Locator?</h2>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-icon">🛡️</div>
+                    <h3>Zero Risk</h3>
+                    <p>No upfront fees. We only get paid when you successfully recover your assets.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon">🔒</div>
+                    <h3>Secure Process</h3>
+                    <p>Third-party escrow for amounts over $100. Your funds are protected throughout the process.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon">🎯</div>
+                    <h3>Expert Service</h3>
+                    <p>We handle all the paperwork and complex procedures so you don't have to.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon">❤️</div>
+                    <h3>Community Focus</h3>
+                    <p>Free service for homeless individuals and those below the poverty line.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="service-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="details-content">
+                    <h3>What We Need From You</h3>
+                    <ul class="details-list">
+                        <li>Your full name (including any previous names)</li>
+                        <li>All past addresses in New Jersey</li>
+                        <li>Approximate dates you lived at each address</li>
+                        <li>Contact information for follow-up</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <h4>No Sensitive Data Required</h4>
+                        <p>We never ask for Social Security numbers, bank account information, or other sensitive personal data.</p>
+                    </div>
+                </div>
+                <div class="details-content">
+                    <h3>Our Process</h3>
+                    <ul class="details-list">
+                        <li>Professional search of NJ unclaimed property database</li>
+                        <li>Complete all required paperwork and documentation</li>
+                        <li>Handle all communications with state agencies</li>
+                        <li>Secure escrow service for amounts over $100</li>
+                        <li>20% finder's fee only deducted from recovered funds</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <h4>Pre-arranged Agreement</h4>
+                        <p>All terms are agreed upon before we begin. Funds are disbursed according to our transparent agreement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section class="forms-section" id="forms">
+        <div class="container">
+            <h2 class="section-title">Get Started Today</h2>
+            <div class="forms-grid">
+                <div class="form-card">
+                    <h3>Single Search Request</h3>
+                    <form action="[FORMSUBMIT_PLACEHOLDER]" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Current Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="past_addresses">Past NJ Addresses</label>
+                            <textarea id="past_addresses" name="past_addresses" placeholder="List all previous addresses in New Jersey with approximate dates..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Start My Search</button>
+                    </form>
+                </div>
+
+                <div class="form-card">
+                    <h3>Multiple Names/Addresses</h3>
+                    <p style="margin-bottom: 1.5rem;">For searches involving multiple names or extensive address histories, please email us directly with your information.</p>
+                    <div class="form-group">
+                        <label>Email for Multiple Requests:</label>
+                        <p style="font-size: 1.2rem; font-weight: bold; text-align: center; margin: 1rem 0;">info@theassetlocator.com</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Include in your email:</label>
+                        <ul style="text-align: left; margin: 1rem 0;">
+                            <li>All names to be searched</li>
+                            <li>Complete address histories</li>
+                            <li>Contact information</li>
+                            <li>Any additional details</li>
+                        </ul>
+                    </div>
+                    <a href="mailto:info@theassetlocator.com" class="btn btn-primary">Send Email Request</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="contact-info">
+                <h3>Contact The Asset Locator</h3>
+                <div class="contact-item">
+                    <strong>Asset Locator Email:</strong> <a href="mailto:info@theassetlocator.com">info@theassetlocator.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone:</strong> <a href="tel:856-462-2627">856-462-2627</a>
+                </div>
+                <div class="contact-item">
+                    <strong>King David Contracting:</strong> <a href="mailto:info@kingdavidcontracting.com">info@kingdavidcontracting.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Direct Contact:</strong> <a href="mailto:james@kingdavidcontracting.com">james@kingdavidcontracting.com</a>
+                </div>
+            </div>
+            <p>&copy; 2025 The Asset Locator - A Service of King David Contracting. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step-card, .trust-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
