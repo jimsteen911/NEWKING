@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Federal Contracting - King David Contracting LLC</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-<body>
-
-  <!-- Navigation include -->
-  <div id="navigation-placeholder"></div>
-
-  <!-- Hero section include -->
-  <div id="hero-placeholder"></div>
-
-  <!-- Entity Page Content -->
-  <main class="section">
+<main id="entity-content">
+  <section class="section">
     <div class="container">
       <h2 class="section-title">Why SAM.gov is Essential</h2>
       <div class="services-grid">
@@ -25,7 +9,7 @@
         </div>
         <div class="service-card">
           <h3>Unique Entity Identifier</h3>
-          <p>Obtain your UEI (Unique Entity Identifier) - the key that unlocks access to federal opportunities and maintains your active status in the system.</p>
+          <p>Obtain your UEI (Unique Entity Identifier) – the key that unlocks access to federal opportunities and maintains your active status in the system.</p>
         </div>
         <div class="service-card">
           <h3>Downstream Industries</h3>
@@ -33,14 +17,136 @@
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Repeat rest of content sections from your entity.html content here -->
-  </main>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Federal Contracting Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>SAM.gov Registration</h3>
+          <p>Complete SAM.gov registration and setup for new businesses, nonprofits, and organizations entering federal contracting.</p>
+          <div class="price">Starting at $[PRICE]</div>
+        </div>
+        <div class="service-card">
+          <h3>Small Business Certifications</h3>
+          <p>Assistance with SBA certifications including Small Business, Disadvantaged Business, Women-Owned, Veteran-Owned, and HUBZone certifications.</p>
+          <div class="price">Starting at $[PRICE]</div>
+        </div>
+        <div class="service-card">
+          <h3>Registration Troubleshooting</h3>
+          <p>Fix existing registrations that have encountered roadblocks, expired, or need updates to remain compliant.</p>
+          <div class="price">Starting at $[PRICE]</div>
+        </div>
+        <div class="service-card">
+          <h3>Capability Statements</h3>
+          <p>Professional capability statements that showcase your business strengths and align with federal contracting requirements.</p>
+          <div class="price">Starting at $[PRICE]</div>
+        </div>
+        <div class="service-card">
+          <h3>Registration Management</h3>
+          <p>Ongoing management to ensure your SAM.gov registration never expires and remains current with all requirements.</p>
+          <div class="price">Starting at $[PRICE]/month</div>
+        </div>
+        <div class="service-card">
+          <h3>FAR Compliance Support</h3>
+          <p>Guidance and support to maintain Federal Acquisition Regulation (FAR) compliance throughout your contracting journey.</p>
+          <div class="price">Starting at $[PRICE]</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Footer include -->
-  <div id="footer-placeholder"></div>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Simplified Process</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Initial Consultation</h3>
+          <p>We assess your business needs and determine the best path forward for federal contracting success.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Business Setup</h3>
+          <p>If needed, we help establish your business entity, create operating agreements, and handle state registrations.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>SAM.gov Registration</h3>
+          <p>Complete registration process including UEI assignment and all required documentation.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Certifications</h3>
+          <p>Pursue relevant small business certifications to maximize your competitive advantage.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3>Capability Statement</h3>
+          <p>Develop a professional capability statement that positions your business for success.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h3>Ongoing Support</h3>
+          <p>Continuous management and compliance support to keep your registration active and current.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Main JavaScript loader -->
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get Your Free Consultation</h2>
+      <form class="contact-form" action="[FORMSUBMIT_ENDPOINT]" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="business-type">Business Type</label>
+          <select id="business-type" name="business-type" required>
+            <option value="">Select Business Type</option>
+            <option value="startup">Startup/New Business</option>
+            <option value="existing">Existing Business</option>
+            <option value="nonprofit">Nonprofit Organization</option>
+            <option value="individual">Individual Contractor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="services">Services Needed</label>
+          <select id="services" name="services" required>
+            <option value="">Select Primary Service</option>
+            <option value="sam-registration">SAM.gov Registration</option>
+            <option value="certifications">Small Business Certifications</option>
+            <option value="troubleshooting">Registration Troubleshooting</option>
+            <option value="capability-statement">Capability Statement</option>
+            <option value="management">Registration Management</option>
+            <option value="compliance">FAR Compliance Support</option>
+            <option value="full-service">Full Service Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Details</label>
+          <textarea id="message" name="message" placeholder="Tell us about your business and specific needs..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Request Free Consultation</button>
+      </form>
+
+      <div class="contact-info">
+        <h3>Ready to Get Started?</h3>
+        <p>Email: <a href="mailto:James@kingdavidcontracting.com">James@kingdavidcontracting.com</a></p>
+        <p>Phone: <a href="tel:8564622627">(856) 462-2627</a></p>
+        <p>We respond to all inquiries within 24 hours</p>
+      </div>
+    </div>
+  </section>
+</main>
